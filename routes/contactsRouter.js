@@ -6,8 +6,8 @@ import {
   createContact,
   updateContact,
 } from "../controllers/contactsControllers.js";
-import isEmptyBody from "../middlewares/isEmptyBody.js"
-import validateBody from "../helpers/validateBody.js"
+import isEmptyBody from "../middlewares/isEmptyBody.js";
+import validateBody from "../helpers/validateBody.js";
 import {
   createContactSchema,
   updateContactSchema,
@@ -21,8 +21,18 @@ contactsRouter.get("/:id", getOneContact);
 
 contactsRouter.delete("/:id", deleteContact);
 
-contactsRouter.post("/", isEmptyBody, validateBody(createContactSchema), createContact);
+contactsRouter.post(
+  "/",
+  validateBody(createContactSchema),
+  isEmptyBody,
+  createContact
+);
 
-contactsRouter.put("/:id", isEmptyBody, validateBody(updateContactSchema), updateContact);
+contactsRouter.put(
+  "/:id",
+  validateBody(updateContactSchema),
+  isEmptyBody,
+  updateContact
+);
 
 export default contactsRouter;
