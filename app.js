@@ -1,9 +1,11 @@
 import express from "express";
-import morgan from "morgan";
+import morgan, { format } from "morgan";
 import cors from "cors";
 import mongoose from "mongoose";
+import { DB_HOST } from "./config.js";
 
 import contactsRouter from "./routes/contactsRouter.js";
+import { DB_HOST } from "./config.js";
 
 const app = express();
 
@@ -23,8 +25,6 @@ app.use((err, req, res, next) => {
 });
 
 
-
-const DB_HOST = "mongodb+srv://Irina:ufhreif1997@cluster0.q0ketyy.mongodb.net/my-contacts?retryWrites=true&w=majority&appName=Cluster0"
 
 mongoose.connect(DB_HOST);
 .then(() => {
