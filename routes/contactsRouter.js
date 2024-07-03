@@ -33,8 +33,8 @@ contactsRouter.post(
 
 contactsRouter.put(
   "/:id",
-  validateBody(updateContactSchema),
   isValidId,
+  validateBody(updateContactSchema),
   isEmptyBody,
   updateContact
 );

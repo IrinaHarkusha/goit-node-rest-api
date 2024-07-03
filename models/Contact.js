@@ -2,23 +2,24 @@ import { Schema, model } from "mongoose";
 import {handleSaveError, setUpdateSettings} from "../hooks/hooks.js"
 
 const contactSchema = new Schema({
-    name: {
-      type: String,
-      required: [true, 'Set name for contact'],
-    },
-    email: {
-      type: String,
-    },
-    phone: {
-        type: String,
-        match: /^\(\d{3}\) \d{3}-\d{4}$/,
-    },
-    favorite: {
-      type: Boolean,
-      default: false,
+  name: {
+    type: String,
+    required: [true, 'Set name for contact'],
+  },
+  email: {
+    type: String,
+  },
+  phone: {
+    type: String,
+    match: /^\(\d{3}\) \d{3}-\d{4}$/,
+  },
+  favorite: {
+    type: Boolean,
+    default: false,
   }
+},
   { versionKey: false }
-});
+);
 
 contactSchema.post("save", handleSaveError);
 

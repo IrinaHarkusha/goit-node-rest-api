@@ -66,7 +66,7 @@ export const updateContact = async (req, res, next) => {
   }
 };
 
-export const updateStatusContact = async (req, res) => {
+export const updateStatusContact = async (req, res, next) => {
   try {
     const { id } = req.params;
     const result = await contactsService.updateStatusContact(
