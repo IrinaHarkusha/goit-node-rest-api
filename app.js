@@ -2,10 +2,7 @@ import express from "express";
 import morgan, { format } from "morgan";
 import cors from "cors";
 import mongoose from "mongoose";
-import { DB_HOST } from "./config.js";
-
 import contactsRouter from "./routes/contactsRouter.js";
-import { DB_HOST } from "./config.js";
 
 const app = express();
 
@@ -24,7 +21,7 @@ app.use((err, req, res, next) => {
   res.status(status).json({ message });
 });
 
-
+const { DB_HOST } = process.env;
 
 mongoose.connect(DB_HOST);
 .then(() => {
